@@ -1,9 +1,10 @@
 #!/usr/python3
 
 import urllib.request, os, json
+from psonosettings import health-url
 
 try:
-    healthcheck = urllib.request.urlopen("https://my.url.tld")
+    healthcheck = urllib.request.urlopen(health-url)
     status = healthcheck.read().decode('utf-8')
     if(str(healthcheck.getcode() == '200'):
         data = json.loads(url.read().decode())
