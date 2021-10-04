@@ -1,4 +1,4 @@
-#!/usr/python3
+#!/usr/bin/python3
 
 import urllib.request, os, json
 from psonosettings import healthurl
