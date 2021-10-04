@@ -4,7 +4,7 @@ import urllib.request, os, json
 from psonosettings import healthurl
 
 try:
-    healthcheck = urllib.request.urlopen(health-url)
+    healthcheck = urllib.request.urlopen(healthurl)
     status = healthcheck.read().decode('utf-8')
     if(str(healthcheck.getcode()) == '200'):
         data = json.loads(url.read().decode())
