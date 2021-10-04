@@ -1,7 +1,7 @@
 #!/usr/python3
 
 import urllib.request, os, json
-from psonosettings import health-url
+from psonosettings import healthurl
 
 try:
     healthcheck = urllib.request.urlopen(health-url)
