@@ -7,7 +7,7 @@ try:
     healthcheck = urllib.request.urlopen(healthurl)
     status = healthcheck.read().decode('utf-8')
     if(str(healthcheck.getcode()) == '200'):
-        data = json.loads(url.read().decode())
+        data = json.loads(status)
         healthy = true
         badcount = 0
         badsrvc = ''
