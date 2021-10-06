@@ -1,6 +1,7 @@
 !/usr/bin/python3
 
-import urllib.request, os, json, docker
+import urllib.request, os, json
+#import docker
 
 DOCKER_CLIENT = docker.from_env()
 RUNNING = 'running'
