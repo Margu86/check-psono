@@ -22,8 +22,8 @@ def cmk_message(container_name):
         print(printstr)
 
 
-for c in CONTAINER_NAMES:
-    cmk_message(c)
+#for c in CONTAINER_NAMES:
+    #cmk_message(c)
 
 try:
     healthcheck = urllib.request.urlopen("https://sub.dom.tld/server/healthcheck/")
