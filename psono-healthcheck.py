@@ -1,6 +1,29 @@
-#!/usr/bin/python3
+!/usr/bin/python3
 
-import urllib.request, os, json
+import urllib.request, os, json, docker
+
+DOCKER_CLIENT = docker.from_env()
+RUNNING = 'running'
+CONTAINER_NAMES = ['psono-server', 'psono-client', 'psono-admin-client']
+
+
+def is_running(container_name):
+    container = DOCKER_CLIENT.containers.get(container_name)
+    container_state = container.attrs['State']
+    container_is_running = container_state['Status'] == RUNNING
+    return container_is_running
+
+def cmk_message(container_name):
+    if(is_running):
+        printstr = '0 "{}" - Running'.format(container_name)
+        print(printstr)
+    else:
+        printstr = '2 "{}" - not Running'.format(container_name)
+        print(printstr)
+
+
+for c in CONTAINER_NAMES:
+    cmk_message(c)
 
 try:
     healthcheck = urllib.request.urlopen("https://sub.dom.tld/server/healthcheck/")
