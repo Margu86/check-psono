@@ -1,20 +1,14 @@
 #!/usr/bin/python3
 
-import urllib.request, os, json
-#from cmk_container_running import containercheck
+import urllib.request, sys, os, json
+#sys.path.append(os.path.dirname(os.path.realpath(__file__)) + "/cmk_container_running")
+#import containercheck
 
 #CONTAINER_NAMES = ['psono-server', 'psono-client', 'psono-admin-client']
 
-
-def is_running(container_name):
-    container = DOCKER_CLIENT.containers.get(container_name)
-    container_state = container.attrs['State']
-    container_is_running = container_state['Status'] == RUNNING
-    return container_is_running
-
 #for container in CONTAINER_NAMES:
-    #cmk_message(container)
-
+    #print(containercheck.cmk_message(container))
+    
 try:
     healthcheck = urllib.request.urlopen("https://sub.dom.tld/server/healthcheck/")
     status = healthcheck.read().decode('utf-8')
