@@ -1,0 +1,3 @@
+[submodule "cmk_container_running"]
+	path = cmk_container_running
+	url = https://github.com/Margu86/cmk_container_running
